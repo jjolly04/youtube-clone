@@ -43,7 +43,7 @@ app.post("/process-video", async (req, res) => {
       deleteRawVideo(inputFileName),
       deleteProcessedVideo(outputFileName),
     ]);
-    console.error(error);
+    console.error(error); 
     return res
       .status(500)
       .send("Internal Server Error: video processing failed.");
