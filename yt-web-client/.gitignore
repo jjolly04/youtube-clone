@@ -37,4 +37,4 @@ next-env.d.ts
 
 yt-web-client/app/firebase/firebase.ts
 
-/app/.env
+/app/.env.local

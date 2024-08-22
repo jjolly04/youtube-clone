@@ -1,6 +1,4 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import {
   getAuth,
   signInWithPopup,
@@ -8,24 +6,23 @@ import {
   onAuthStateChanged,
   User,
 } from "firebase/auth";
+import { getFunctions } from "firebase/functions";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBiZ7QmSMJ62upSeNjDOWXL2KzKWEjqNBA",
-  authDomain: "yt-clone-ee9ae.firebaseapp.com",
-  projectId: "yt-clone-ee9ae",
-  storageBucket: "yt-clone-ee9ae.appspot.com",
-  messagingSenderId: "683112945532",
-  appId: "1:683112945532:web:89c27604783fdd0eca76f9",
-  measurementId: "G-1X118WYV0N",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
 const auth = getAuth(app);
+
+export const functions = getFunctions(app);
 
 export function signInWithGoogle() {
   return signInWithPopup(auth, new GoogleAuthProvider());
@@ -40,5 +37,3 @@ export function onAuthStateChangedHelper(
 ) {
   return onAuthStateChanged(auth, callback);
 }
-
-

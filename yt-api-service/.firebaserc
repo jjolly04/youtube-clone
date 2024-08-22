@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "default": "yt-clone-ee9ae"
+  },
+  "targets": {},
+  "etags": {
+    "yt-clone-ee9ae": {
+      "extensionInstances": {}
+    }
+  },
+  "dataconnectEmulatorConfig": {}
+}
